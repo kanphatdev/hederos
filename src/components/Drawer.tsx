@@ -1,8 +1,11 @@
 "use client";
-import { Box, CreditCard, FileText, LayoutDashboard, LineChart, ShoppingBag, UsersRound, X } from 'lucide-react';
+import { Box, CreditCard, FileText, LayoutDashboard, LineChart, Menu, ShoppingBag, UsersRound, X } from 'lucide-react';
 import React, { useState } from 'react';
-
-const Drawer: React.FC = () => {
+import Nav from './Nav';
+interface DrawerProps{
+    children: React.ReactNode;
+}
+const Drawer= ({children}:DrawerProps) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const toggleDrawer = () => {
@@ -10,7 +13,7 @@ const Drawer: React.FC = () => {
     };
 
     return (
-        <div className="relative h-screen bg-purple-100">
+        <div className="relative h-screen ">
             {/* Drawer */}
             <div className={`fixed inset-y-0 left-0 w-64 bg-white shadow-lg transition-transform transform ${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'} z-40`}>
                 <div className="p-4 flex justify-end">
@@ -61,11 +64,16 @@ const Drawer: React.FC = () => {
             </div>
 
             {/* Main content */}
-            <div className={`p-4 transition-all duration-300 ${isDrawerOpen ? 'ml-64' : 'ml-0'}`}>
-                <button className="px-4 py-2 bg-blue-500 text-white rounded" onClick={toggleDrawer}>
-                    Open Drawer
+            <div className={` transition-all duration-300 ${isDrawerOpen ? 'ml-64' : 'ml-0'}`}>
+                <Nav>
+                <button className="btn btn-ghost" onClick={toggleDrawer}>
+                <Menu />
                 </button>
-                <p className="mt-4">Main content goes here.</p>
+                </Nav>
+              
+                <div className="mt-4 w-screen">
+                    {children}
+                </div>
             </div>
         </div>
     );
