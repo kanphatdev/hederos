@@ -1,4 +1,5 @@
 import Drawer from "@/components/Drawer";
+import Graph, { RenderLineChart } from "@/components/Line";
 import {
   ArrowUpLeft,
   CalendarCheck2,
@@ -6,8 +7,16 @@ import {
   MoveUpRight,
   PieChart,
 } from "lucide-react";
-import Image from "next/image";
-
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import Divider from "@mui/material/Divider";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import Typography from "@mui/material/Typography";
+import * as React from 'react';
+import PopularSellingProductsTable from "@/components/product";
+import SalesList from "@/components/saleman";
 export default function Home() {
   return (
     <Drawer>
@@ -112,6 +121,13 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="flex flex-row justify-center mt-2">
+        <div className="basis-1/6 bg-white shadow-md px-40 w-screen py-28 ">
+          <Graph />
+        </div>
+      <SalesList/>
+      </div>
+      <PopularSellingProductsTable/>
     </Drawer>
   );
 }
