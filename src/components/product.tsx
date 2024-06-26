@@ -8,7 +8,7 @@ const PopularSellingProductsTable: React.FC = () => {
                 <div className="overflow-x-auto">
                     <table className="min-w-full bg-white rounded-lg shadow">
                         <thead>
-                            <tr className="w-full bg-slate-50 text-white">
+                            <tr className="w-full bg-slate-50 text-black">
                                 <th className="py-3 px-5 text-left">Product</th>
                                 <th className="py-3 px-5 text-left">Category</th>
                                 <th className="py-3 px-5 text-left">Price</th>
